@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getConfigsFetch());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>
@@ -22,7 +22,7 @@ function App() {
           <Route
             exact
             path="/movies/:movie"
-            component={({ match }) => <Movie movie={match.params.movie} />}
+            render={({ match }) => <Movie movie={match.params.movie} />}
           />
           <Route path="*" component={ErrorPage} />
         </Switch>

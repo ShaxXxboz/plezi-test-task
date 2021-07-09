@@ -1,1 +1,1 @@
-export const getConfigs = (state) => state.configs.configs;
+export const getImageConfigs = (state) => state.configs.configs?.images;

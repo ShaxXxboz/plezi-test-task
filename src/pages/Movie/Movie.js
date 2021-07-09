@@ -10,7 +10,7 @@ const Movie = ({ movie: movieId }) => {
 
   useEffect(() => {
     dispatch(getMovieFetch({ movieId }));
-  }, [movieId]);
+  }, [movieId, dispatch]);
 
   return <MovieInfo movie={movie} />;
 };

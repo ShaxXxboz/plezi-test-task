@@ -1,16 +1,16 @@
-import React, { useMemo } from "react";
+import React, { useMemo, memo } from "react";
 import { Container, Row, Col } from "react-grid-system";
 import { useSelector } from "react-redux";
-import { getConfigs } from "../../store/selectors/configs";
+import { getImageConfigs } from "../../store/selectors/configs";
 import { PosterWrapper, InfoWrapper, InfoData } from "./MovieInfo.styles";
 
-const MovieInfo = ({ movie }) => {
-  const configs = useSelector(getConfigs);
+const MovieInfo = memo(({ movie }) => {
+  const imageConfigs = useSelector(getImageConfigs);
 
   const posterUrl = useMemo(
     () =>
-      `${configs?.images.base_url}${configs?.images.poster_sizes[4]}${movie?.poster_path}`,
-    [movie, configs]
+      `${imageConfigs?.base_url}${imageConfigs.poster_sizes[4]}${movie?.poster_path}`,
+    [movie, imageConfigs]
   );
 
   return (
@@ -46,6 +46,6 @@ const MovieInfo = ({ movie }) => {
       )}
     </Container>
   );
-};
+});
 
 export default MovieInfo;
